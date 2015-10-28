@@ -35,29 +35,29 @@ library
                      , Chap02.Data.FiniteMap
                      ----
                      ---- no ex 1
-                     --, Chap03.Exercise02
-                     --, Chap03.Exercise03
-                     --, Chap03.Exercise04
-                     --, Chap03.Exercise05
-                     --, Chap03.Exercise06
-                     --, Chap03.Exercise07
-                     ---- no ex 8
-                     --, Chap03.Exercise09
-                     --, Chap03.Exercise10
-                     --, Chap03.Data.TaggedBinaryTree
-                     --, Chap03.Data.LeftistHeap
-                     --, Chap03.Data.LeftistHeap2
-                     --, Chap03.Data.LeftistHeap4
-                     --, Chap03.Data.Heap
-                     --, Chap03.Data.BinomialTree.Ranked
-                     --, Chap03.Data.BinomialHeap.Ranked
-                     --, Chap03.Data.BinomialTree.Unranked
-                     --, Chap03.Data.BinomialHeap.Unranked
-                     --, Chap03.Data.RedBlackTree
-                     --, Chap03.Data.RedBlackTree10
-                     ----
-                     ---- no ex 1
-                     --, Chap04.Exercise02
+                     , Chap03.Exercise02
+                     , Chap03.Exercise03
+                     , Chap03.Exercise04
+                     , Chap03.Exercise05
+                     , Chap03.Exercise06
+                     , Chap03.Exercise07
+                     -- no ex 8
+                     , Chap03.Exercise09
+                     , Chap03.Exercise10
+                     , Chap03.Data.TaggedBinaryTree
+                     , Chap03.Data.LeftistHeap
+                     , Chap03.Data.LeftistHeap2
+                     , Chap03.Data.LeftistHeap4
+                     , Chap03.Data.Heap
+                     , Chap03.Data.BinomialTree.Ranked
+                     , Chap03.Data.BinomialHeap.Ranked
+                     , Chap03.Data.BinomialTree.Unranked
+                     , Chap03.Data.BinomialHeap.Unranked
+                     , Chap03.Data.RedBlackTree
+                     , Chap03.Data.RedBlackTree10
+                     --
+                     -- no ex 1
+                     , Chap04.Exercise02
                      ----
                      --, Chap05.Data.Queue
                      --, Chap05.Data.Deque

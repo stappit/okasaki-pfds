@@ -23,7 +23,7 @@ library
                      , Chap02.Exercise01
                      , Chap02.Exercise02
                      , Chap02.Exercise03
-                     --, Chap02.Exercise04
+                     , Chap02.Exercise04
                      --, Chap02.Exercise05
                      --, Chap02.Exercise06
                      , Chap02.Data.Set
@@ -31,7 +31,7 @@ library
                      , Chap02.Data.UnbalancedSet
                      , Chap02.Data.UnbalancedSet2
                      , Chap02.Data.UnbalancedSet3
-                     --, Chap02.Data.UnbalancedSet4
+                     , Chap02.Data.UnbalancedSet4
                      ----
                      ---- no ex 1
                      --, Chap03.Exercise02

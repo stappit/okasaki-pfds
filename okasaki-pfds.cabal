@@ -59,9 +59,9 @@ library
                      -- no ex 1
                      , Chap04.Exercise02
                      ----
-                     --, Chap05.Data.Queue
-                     --, Chap05.Data.Deque
-                     --, Chap05.Exercise01
+                     , Chap05.Data.Queue
+                     , Chap05.Data.Deque
+                     , Chap05.Exercise01
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.7 && <4.8

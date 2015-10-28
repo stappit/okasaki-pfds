@@ -24,7 +24,7 @@ library
                      , Chap02.Exercise02
                      , Chap02.Exercise03
                      , Chap02.Exercise04
-                     --, Chap02.Exercise05
+                     , Chap02.Exercise05
                      --, Chap02.Exercise06
                      , Chap02.Data.Set
                      , Chap02.Data.BinaryTree 

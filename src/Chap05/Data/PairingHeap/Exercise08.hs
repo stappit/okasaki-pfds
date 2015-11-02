@@ -1,6 +1,6 @@
 module Chap05.Data.PairingHeap.Exercise08 where
 
-import Chap02.Data.BinaryTree
+import Chap05.Data.BinaryTree
 
 instance Heap BinaryTree where
   empty = E
@@ -13,18 +13,18 @@ instance Heap BinaryTree where
 
   merge h E = h
   merge E h = h
-  merge (T x lx _) (T y ly _)
-    | x <= y    = T x (T y ly lx) E
-    | otherwise = T y (T x lx ly) E
+  merge (T x a1 _) (T y a2 _)
+    | x <= y    = T x (T y a2 a1) E
+    | otherwise = T y (T x a1 a2) E
 
   insert x = merge (T x E E)
 
   deleteMin E         = Nothing
-  deleteMin (T _ l _) = Just (mergePairs l)
+  deleteMin (T _ a _) = Just (mergePairs a)
     where
       mergePairs :: Ord a => BinTree a -> BinTree a
-      mergePairs (T l1 x (T l2 y rest)) =
-        let h1 = T l1 x E
-            h2 = T l2 y E
+      mergePairs (T a1 x (T a2 y rest)) =
+        let h1 = T a1 x E
+            h2 = T a2 y E
         in  merge (merge h1 h2) (mergePairs rest)
       mergePairs t = t

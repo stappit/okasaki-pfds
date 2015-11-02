@@ -2,27 +2,29 @@ module Chap05.Data.PairingHeap.Exercise08 where
 
 import Chap05.Data.BinaryTree
 
-instance Heap BinaryTree where
-  empty = E
+newtype PairingHeap a = C5E8 (BinaryTree a)
 
-  isEmpty E = True
-  isEmpty _ = False
+instance Heap PairingHeap where
+  empty = C5E8 E
 
-  findMin E         = Nothing
-  findMin (T x _ _) = Just x
+  isEmpty (C5E8 E) = True
+  isEmpty _        = False
 
-  merge h E = h
-  merge E h = h
-  merge (T x a1 _) (T y a2 _)
-    | x <= y    = T x (T y a2 a1) E
-    | otherwise = T y (T x a1 a2) E
+  findMin (C5E8 E)         = Nothing
+  findMin (C5E8 (T x _ _)) = Just x
 
-  insert x = merge (T x E E)
+  merge h (C5E8 E) = h
+  merge (C5E8 E) h = h
+  merge (C5E8 (T x a1 _)) (C5E8 (T y a2 _))
+    | x <= y    = C5E8 $ T x (T y a2 a1) E
+    | otherwise = C5E8 $ T y (T x a1 a2) E
+
+  insert x = merge (C5E8 $ T x E E)
 
   deleteMin E         = Nothing
-  deleteMin (T _ a _) = Just (mergePairs a)
+  deleteMin (T _ a _) = Just . C5E8 $ mergePairs a
     where
-      mergePairs :: Ord a => BinTree a -> BinTree a
+      mergePairs :: Ord a => BinaryTree a -> BinaryTree a
       mergePairs (T a1 x (T a2 y rest)) =
         let h1 = T a1 x E
             h2 = T a2 y E

@@ -1,9 +1,9 @@
 module Chap03.Exercise07 where
 
-import Chap03.Data.Heap
-import Control.Applicative (liftA2, pure)
+import Control.Applicative (liftA2)
 import Data.Maybe
 
+import Chap03.Data.Heap (Heap(..), arbHeap)
 import Test.QuickCheck (Arbitrary(..), sized)
 
 data ExplicitMin h a = Empty
@@ -27,13 +27,5 @@ instance Heap h => Heap (ExplicitMin h) where
         h' = deleteMin h
         minh' = h' >>= findMin
 
-instance (Arbitrary a, Ord a, Heap h) => Arbitrary (ExplicitMin h a) where
-  arbitrary = sized arb
-    where
-      arb 0 = pure empty
-      arb 1 = liftA2 insert arbitrary $ pure empty
-      arb n = liftA2 merge (arb p) (arb q)
-        where
-          p = n `div` 2
-          q = n - p
-
+instance (Heap h, Ord a, Arbitrary a) => Arbitrary (ExplicitMin h a) where
+  arbitrary = sized arbHeap

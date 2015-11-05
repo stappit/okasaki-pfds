@@ -3,13 +3,11 @@
 module Chap03.Data.BinomialHeap.Ranked where
 
 import Chap03.Data.BinomialTree.Ranked
-import Chap03.Data.Heap
+import Chap03.Data.Heap (Heap(..), arbHeap)
+import Test.QuickCheck (Arbitrary(..), sized)
 
 import Data.Foldable
 import Data.Functor
-
-import Test.QuickCheck (Arbitrary(..), sized)
-import Control.Applicative (liftA2, pure)
 
 newtype BinomialHeap a = BH {unBH :: [BinomialTree a]}
                        deriving (Show, Foldable)
@@ -49,12 +47,5 @@ instance Heap BinomialHeap where
     where
       Just (BT _ _ ts1, h') = removeMinTree h
 
-instance (Arbitrary a, Ord a) => Arbitrary (BinomialHeap a) where
-  arbitrary = sized arbBH
-    where
-        arbBH 0 = pure empty
-        arbBH 1 = liftA2 insert arbitrary (pure empty)
-        arbBH n = let p = n `div` 2
-                      q = n - p
-                  in  liftA2 merge (arbBH p) (arbBH q)
-  
+instance (Ord a, Arbitrary a) => Arbitrary (BinomialHeap a) where
+  arbitrary = sized arbHeap

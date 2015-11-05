@@ -1,9 +1,11 @@
+{-# LANGUAGE FlexibleInstances #-}
+
 module Chap03.Suite where
 
 import Test.Framework (testGroup, Test)
 import Test.Framework.Providers.QuickCheck2 (testProperty)
 
-import Chap02.Data.Set.Test (testSet)
+import Chap02.Data.Set.Test  (testSet)
 import Chap03.Data.Heap.Test (testHeap)
 
 import Chap03.Data.RedBlackTree      (RedBlackTree, isRedInv, isBlackInv)
@@ -78,3 +80,4 @@ chap03Suite = testGroup "Chapter 3" $
          testSet (undefined :: RedBlackTree10 Int)
       ++ testRBInv (unC3E10 :: RedBlackTree10 Int -> RedBlackTree Int)
   ]
+

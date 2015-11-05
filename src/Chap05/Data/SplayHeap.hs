@@ -1,15 +1,17 @@
 module Chap05.Data.SplayHeap where
 
-import Chap03.Data.Heap
+import Chap03.Data.Heap (Heap(..), arbHeap)
 import Data.Foldable
 import Prelude hiding (foldr)
+import Control.Applicative (liftA2, liftA3, pure)
+import Test.QuickCheck (Arbitrary(..), sized, choose)
 
 data SplayHeap a = E
                  | T (SplayHeap a) a (SplayHeap a)
                  deriving (Show, Eq)
 
 instance Foldable SplayHeap where
-  foldr f z E = z
+  foldr _ z E = z
   foldr f z (T l x r) = foldr f (f x $ foldr f z r) l
 
 bigger :: Ord a => a -> SplayHeap a -> SplayHeap a
@@ -60,3 +62,6 @@ instance Heap SplayHeap where
   deleteMin (T E x b)         = Just b
   deleteMin (T (T E x b) y c) = Just $ T b y c
   deleteMin (T (T a x b) y c) = liftA3 T (deleteMin a) (pure x) (pure $ T b y c)
+
+instance (Ord a, Arbitrary a) => Arbitrary (SplayHeap a) where
+  arbitrary = sized arbHeap

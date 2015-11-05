@@ -5,7 +5,7 @@ import Test.Framework (defaultMain)
 import Chap02.Suite
 import Chap03.Suite
 {-import Chap04.Suite-}
-{-import Chap05.Suite-}
+import Chap05.Suite
 {-import Chap06.Suite-}
 {-import Chap07.Suite-}
 {-import Chap08.Suite-}
@@ -18,7 +18,7 @@ main = defaultMain [ --
                      chap02Suite
                    , chap03Suite
                    {-, chap04Suite-}
-                   {-, chap05Suite-}
+                   , chap05Suite
                    {-, chap06Suite-}
                    {-, chap07Suite-}
                    {-, chap08Suite-}

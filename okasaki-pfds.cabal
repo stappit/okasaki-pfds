@@ -61,7 +61,16 @@ library
                      ----
                      , Chap05.Data.Queue
                      , Chap05.Data.Deque
+                     , Chap05.Data.SplayHeap
+                     , Chap05.Data.SplayHeap.Exercise04
+                     , Chap05.Data.PairingHeap
+                     , Chap05.Data.PairingHeap.Exercise08
+                     , Chap05.Data.BatchedDeque
+                     , Chap05.Data.BinaryTree
                      , Chap05.Exercise01
+                     , Chap05.Exercise04
+                     , Chap05.Exercise07
+                     , Chap05.Exercise08
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.7 && <4.8

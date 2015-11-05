@@ -3,10 +3,10 @@ module Chap05.Exercise08 (toBinary) where
 import Chap05.Data.PairingHeap
 import qualified Chap05.Data.BinaryTree as B
 
-toBinary :: Ord a => PairingHeap a -> BinaryTree a
+toBinary :: Ord a => PairingHeap a -> B.BinaryTree a
 toBinary h = go h []
   where
-    go :: Ord a => PairingHeap a -> [PairingHeap a] -> BinaryTree a
+    go :: Ord a => PairingHeap a -> [PairingHeap a] -> B.BinaryTree a
     go E            _      = B.E
     go (T x [])     []     = B.T x B.E B.E
     go (T x [])     (r:rs) = B.T x B.E (go r rs)

@@ -27,8 +27,8 @@ testSet :: ( Set s a
            s a -> [Test]
 testSet s = 
   [ 
-    testProperty "set 1: x not ∈ s ⇒ x ∈ s ∪ {x}" $
+    testProperty "set 1: x ∉ s ⇒ x ∈ s ∪ {x}" $
                  prop_InsertInsertsAs s
-  , testProperty "set 2: {} has no elements" $
+  , testProperty "set 2: Ø has no elements" $
                  prop_EmptyIsEmptyAs s
   ]

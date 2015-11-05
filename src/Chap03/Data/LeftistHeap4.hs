@@ -5,13 +5,13 @@ module Chap03.Data.LeftistHeap4 where
 
 import qualified Chap03.Exercise02 as Ex2
 import qualified Chap03.Exercise04 as Ex4
-import Chap03.Data.Heap  
 import Chap03.Data.LeftistHeap
 
-import Control.Applicative (liftA2, pure, (<$>))
+import Data.Functor ((<$>))
 import Data.Foldable
 import Prelude hiding (foldr)
 
+import Chap03.Data.Heap (Heap(..), arbHeap)
 import Test.QuickCheck (Arbitrary(..), sized)
 
 newtype LeftistHeap4 a = C3E4 {unC3E4 :: LeftistHeap WeightRank a}
@@ -30,12 +30,5 @@ instance Heap LeftistHeap4 where
   findMin         (C3E4 h)  = findMin h
   deleteMin       (C3E4 h)  = C3E4 <$> deleteMin h
 
-instance (Arbitrary a, Ord a) => Arbitrary (LeftistHeap4 a) where
-  arbitrary = sized arbLH
-    where
-        arbLH 0 = pure empty
-        arbLH 1 = liftA2 insert arbitrary (pure empty)
-        arbLH n = liftA2 merge (arbLH p) (arbLH q)
-            where
-                p = n `div` 2
-                q = n - p
+instance (Ord a, Arbitrary a) => Arbitrary (LeftistHeap4 a) where
+  arbitrary = sized arbHeap

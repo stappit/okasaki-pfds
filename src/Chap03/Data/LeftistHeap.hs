@@ -6,14 +6,14 @@ module Chap03.Data.LeftistHeap ( --
                                ) where
 
 import Chap03.Data.TaggedBinaryTree
-import Chap03.Data.Heap
 import Util
 
 import Data.Monoid
 import Data.Foldable
-import Control.Applicative (pure, liftA2)
-import Test.QuickCheck (Arbitrary(..), sized)
 import Prelude hiding (foldr)
+
+import Chap03.Data.Heap (Heap(..), arbHeap)
+import Test.QuickCheck (Arbitrary(..), sized)
 
 data WeightBias
 data RightSpine
@@ -93,12 +93,5 @@ instance (Ord r, Monoid r, Enum r) => Heap (LeftistHeap r) where
 instance Foldable (LeftistHeap r) where
   foldr f z = foldr f z . unLH
 
-instance (Arbitrary a, Ord a, Monoid r, Ord r, Enum r) => Arbitrary (LeftistHeap r a) where
-  arbitrary = sized arbLH
-    where
-        arbLH 0 = pure empty
-        arbLH 1 = liftA2 insert arbitrary (pure empty)
-        arbLH n = liftA2 merge (arbLH p) (arbLH q)
-            where
-                p = n `div` 2
-                q = n - p
+instance (Ord a, Arbitrary a, Ord r, Monoid r, Enum r) => Arbitrary (LeftistHeap r a) where
+  arbitrary = sized arbHeap

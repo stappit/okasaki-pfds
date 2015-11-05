@@ -1,4 +1,4 @@
-module Chap05.Exercise04 (smaller) where
+module Chap05.Exercise04 where
 
 import Chap05.Data.SplayHeap
 

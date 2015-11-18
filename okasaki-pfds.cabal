@@ -75,6 +75,9 @@ library
                      , Chap06.Data.Sortable
                      , Chap06.Data.BottomUpMergeSort
                      , Chap06.Exercise07
+                     ----
+                     , Chap07.Data.BinomialHeap
+                     , Chap07.Exercise04
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.7 && <4.8

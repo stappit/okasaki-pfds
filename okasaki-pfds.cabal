@@ -71,6 +71,10 @@ library
                      , Chap05.Exercise04
                      , Chap05.Exercise07
                      , Chap05.Exercise08
+                     ----
+                     , Chap06.Data.Sortable
+                     , Chap06.Data.BottomUpMergeSort
+                     , Chap06.Exercise07
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.7 && <4.8

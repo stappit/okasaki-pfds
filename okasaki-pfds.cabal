@@ -100,17 +100,3 @@ test-suite Tests
                      , test-framework-hunit
                      , test-framework-quickcheck2
 
-benchmark Sort
-  hs-source-dirs:      prof
-  main-is:             Chap04/Exercise02.hs
-  type:                exitcode-stdio-1.0
-  build-depends:       base >=4.7 && <4.8
-                     , containers
-                     , criterion
-                     , deepseq
-                     , QuickCheck
-  ghc-options:       -O2
-                     -threaded
-                     -fprof-auto
-                     "-with-rtsopts=-N -p -s -h -i0.1"
-

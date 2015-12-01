@@ -1,15 +1,22 @@
 module Chap06.Exercise07 where
 
-import Chap06.Data.MergeSort
+import Chap06.Data.BottomUpMergeSort
+
+import Data.List
 
 extract :: (Ord a) => Int -> MergeSort a -> [a]
 extract k _             | k <= 0 = []
-extract k (BUMS k' xss) | k <= k' = concat xss
-extract k (BUMS _ xss) = go k xss [] Nothing []
+extract k (BUMS k' xss) | k >= k' = concat xss
+extract k (BUMS _ xss) = go k xss
   where
-    go k _  _   _               out | k <= 0 = out
-    go k [] yss (Just (z : zs)) out          = go (k-1) (zs : yss) [] Nothing (z : out)
-    go k (xs@(x:_) : xss) yss Nothing out    = go k xss yss (Just xs) out
-    go k (xs@(x:_) : xss) yss m@(Just zs@(z:_)) out 
-      | x < z                                = go k xss (zs : yss) (Just xs) out
-      | otherwise                            = go k xss (xs : yss) m         out
+    go _ []           = []
+    go k _   | k <= 0 = []
+    go k xss          = 
+      let m = minimum $ [ x | (x:_) <- xss ]
+          rest = snd $ foldr chk (False, []) xss
+          chk [] yss = yss
+          chk xs@(x:xs') (b, yss)
+            | b || x /= m = (b, xs:yss)
+            | x == m      = (True, xs':yss)
+            | otherwise   = (True, yss)
+      in  m : go (k-1) rest

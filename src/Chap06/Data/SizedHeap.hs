@@ -15,6 +15,6 @@ instance (Heap h) => Heap (SizedHeap h) where
 
   merge (SH m h1) (SH n h2) = SH (m+n) $ merge h1 h2
 
-  findMin (SH n h) = findMin h
+  findMin (SH _ h) = findMin h
 
   deleteMin (SH n h) = SH (n-1) <$> deleteMin h

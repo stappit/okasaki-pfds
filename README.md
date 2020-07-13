@@ -5,7 +5,7 @@ Goals
 -----
 
 This project is an attempt to solve all of the coding parts to the exercises from Okasaki's "Purely Functional Data Structures".
-The theoretical parts can be found on the [accompanying website](https://stappit.github.io/categories/pfds.html).
+The theoretical parts can be found on the [accompanying website](www.briancallander.com/categories/pfds.html).
 There should be extensive testing for all solutions.
 
 This is currently under construction and will likely benefit from significant editing for consistency.
